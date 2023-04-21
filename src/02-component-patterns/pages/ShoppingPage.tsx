@@ -10,39 +10,25 @@ export const ShoppingPage = () => {
     <div >
         <h1>Shopping Store</h1>
         <hr />
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap'
-        }}>
-
-              <ProductCard 
-                key={product.id}   
-                product={product}
-                className="bg-dark text-white"
-                initialValues={{
-                  count: 4,
-                  maxCount: 10
-                }}
-              > 
-              {
-                ({reset,isMaxCountReached, maxCount, increaseBy, count})=>(
-                  <>
-                    <ProductImage className ="custom-image"/>
-                    <ProductTitle className ="text-bold"/>
-                    <ProductButtons className="custom-buttons"/>
-                    <button onClick={reset}> Reset </button>
-                    {/* {JSON.stringify(args, null, 3)} */}
-                    <button onClick={()=> increaseBy(-2)}>-2</button>
-                    {
-                      (!isMaxCountReached && <button onClick={()=> increaseBy(+2)}>+2</button>)
-                    }
-                    
-                    <span>count: {count} - {maxCount} </span>
-                  </>
-                )
-              }                      
-              </ProductCard>  
+        <div>
+          <ProductCard 
+            key={product.id}   
+            product={product}
+            initialValues={{
+              count: 4,
+              maxCount: 10
+            }}
+          > 
+          {
+            ({reset,isMaxCountReached, maxCount, increaseBy, count})=>(
+              <>
+                <ProductImage />
+                <ProductTitle />
+                <ProductButtons />
+              </>
+            )
+          }                      
+          </ProductCard>
         </div>
     </div>
   )
